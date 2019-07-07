@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>To Do List App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    	<link href="../../webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+   		<link rel="stylesheet" href="../../http:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="../../https:fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    	<link rel="stylesheet" href="../../css/style.css">
+   		 <script src="../../webjars/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+
+	   <div class="header-blue">
+            <div th:fragment="navbar">
+            <nav class="navbar navbar-default navigation-clean-search">
+                <div class="container">
+                    <div class="navbar-header">
+                    <img src="../../static/images/jeg_white.png"  height="60px"
+                    	 th:src="@{/images/jeg_white.png}"/>
+                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav navbar-right">
+                           <li class="active" role="presentation"><a href="@{/}">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Explore <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li th:action="@{/todolist/new}" th:method="get" type="submit" role="presentation"><a href="#">Create a Task</a></li>
+                                    <li th:action="@{/todolist/result}" th:method="get" type="submit" role="presentation"><a href="#">'ToDo List'</a></li>
+                                    <li th:action="@{/todolist/update}" th:method="get" type="submit" role="presentation"><a href="#">Update a Task</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                       </div>
+                </div>
+            </nav>
+	</div>
+	</div>
+</body>
+	<script src="../../webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../../webjars/jquery/1.9.1/jquery.min.js"></script>
+</html>
+
+

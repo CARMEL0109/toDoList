@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<div th:replace="/fragments/styling :: head-style" ></div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https:fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="header-blue">
+         <div th:replace="fragments/navbar :: navbar" ></div>
+			<div th:replace="/fragments/styling :: body-links" ></div>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-0">
+                   
+			 			<h1>The revolution is here.</h1>
+                        <p>To Update a Task</p> 
+                        <p>Simply fill out any of the fields you want to update and  <br>Be sure to click the 'Update this task' button to submit your updates..</p>
+			
+				 <form  th:action="@{'/todolist/update{id}' (id=${task.id})}" th:object="${todoTask}" method="put">
+						<div class="form-group">
+							<label>Title:</label>
+							<input type="text" class="form-control" placeholder="Title" th:field="*{title}" />
+						</div>
+					<div class="form-group">
+						<label>Created By:</label>
+						<input type="text" class="form-control" placeholder="CreatedBy" th:field="*{cratedBy}" />
+					</div>
+					<div class="form-group">
+						<label>Description:</label>
+						<textarea type="text" row="3" class="form-control" placeholder="Description" th:field="*{decsription}"> </textarea>
+						</div>
+			
+ 						<div class="form-group">
+ 							<label>Status:</label>
+ 							<input type="checkbox" checked="checked" placeholder="Status" th:field="{status}" />
+ 						</div> 
+                        	<button type="submit" class="btn btn-success btn-lg action-button">Submit Changes</button>
+                        </form> 
+                       </div>      
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+   
+ <footer>
+	<div class="footer_copy">
+                <div class="container">
+                    <div class="column one">
+
+                        <div class="copyright">
+                            &copy;2019 TTS Final Project | Johnson, Edit, Grady<a target="_blank" rel="nofollow" href=""></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+ 
+    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+</body>
+
+</html>

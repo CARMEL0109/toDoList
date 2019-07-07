@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<div th:replace="/fragments/styling :: head-style" ></div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https:fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="header-blue">
+           <div th:replace="fragments/navbar :: navbar" ></div>
+			<div th:replace="/fragments/styling :: body-links" ></div>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-0">
+    					<h1>The revolution is here.</h1>
+                        <p>Its a beautiful day!
+                        <br>Here are your activities for the day.<br>
+                       		Have a fantastic day.<br> Enjoy!</p>
+                        
+					<div th:each="task: ${todoTasks}">
+   							<p th:text="${task.id}"></p>
+   							<p th:text="${task.title}"></p>
+
+							<p th:text="${task.description}"></p>
+							<p th:text="${task.createdBy}"></p>
+							<p th:text="${task.status}"></p>
+						
+							<form class="et_pb_button"  th:action="@{'/todolist/result/{id}'(id=${task.id})}" th:method="delete"><input type="hidden" name="_method" value="delete"/>
+							<button type="submit" class="btn btn-lg action-button" th:text="Delete">Delete a Task</button></form>
+							<form a class="et_pb_button"  th:href="@{'/todolist/result/{id}' (id=${task.id})}" th:method="get">
+							<!-- <input type="hidden" name="_method" value="put"/> -->
+							<button type="submit" class="btn btn-lg action-button">Update A Task</button></form>
+						
+    				<hr>
+ 					</div>
+ 		
+				<div >
+    
+       <!-- Update Buttons -->
+       			<div >
+         				<a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
+						<!-- <a th:href="@{/todolist/result}"><button class="btn btn-warning">Update A Task</button></a> -->
+						<a th:href="@{/todolist/new}"><button class="btn btn-primary">Add a New Task</button></a>
+						<!-- <a th:href="@{/todolist/result}"><button class="btn btn-danger">Delete a Task</button></a> -->
+				</div>	
+				</div>
+               		 </div>
+           		 </div>
+        	</div>
+   		</div>
+   	</div>
+   </div>
+ <footer>
+	<div class="footer_copy">
+                <div class="container">
+                    <div class="column one">
+
+                        <div class="copyright">
+                            &copy;2019 TTS Final Project | Johnson, Edit, Grady<a target="_blank" rel="nofollow" href=""></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+ 
+    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+</body>
+
+</html>
