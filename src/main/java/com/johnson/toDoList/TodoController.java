@@ -23,7 +23,7 @@ public class TodoController {
 	
 	@GetMapping(value="/")
 	public String index(TodoTask todoTask, Model model) {
-		model.addAttribute("tasks", todoTaskRepository.findAll());
+//		model.addAttribute("tasks", todoTaskRepository.findAll());
 		return "todolist/index";
 	}
 	
@@ -64,7 +64,7 @@ public class TodoController {
 
     }
 	
-	@GetMapping("todolist/update/{id}")
+	@GetMapping("/todolist/update/{id}")
 	public String getUpdatePage(@PathVariable Long id, TodoTask todoTask, Model model) {
 		TodoTask task = todoTaskRepository.findById(id).orElseThrow(() -> (new IllegalArgumentException("invalid id " + id)));
 		model.addAttribute("tasks", task);
@@ -72,7 +72,7 @@ public class TodoController {
 	}
 
 	// EDIT a specific task on edit page
-	@PutMapping("todolist/update/{id}")
+	@PutMapping("todolist/result/{id}")
 	public String updateTask(@PathVariable Long id, TodoTask todoTask, Model model) {
 		TodoTask editTask = todoTaskRepository.findById(id).orElse(null);
 		todoTask.setTitle(todoTask.getTitle());
@@ -81,7 +81,7 @@ public class TodoController {
 		todoTask.setStatus(todoTask.isStatus());
 		
 		todoTaskRepository.save(todoTask);
-		model.addAttribute("tasks", todoTaskRepository.findAll());
+		model.addAttribute("todoTasks", todoTaskRepository.findAll());
 		return "todolist/result";
 	}
 	
