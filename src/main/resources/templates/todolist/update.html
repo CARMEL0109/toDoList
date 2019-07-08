@@ -5,7 +5,7 @@
 	<div th:replace="/fragments/styling :: head-style" ></div>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List App</title>
+    <title>Update</title>
     <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https:fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
@@ -26,23 +26,23 @@
                         <p>To Update a Task</p> 
                         <p>Simply fill out any of the fields you want to update and  <br>Be sure to click the 'Update this task' button to submit your updates..</p>
 			
-				 <form  th:action="@{'/todolist/update{id}' (id=${task.id})}" th:object="${todoTask}" method="put">
+				 <form  th:action="@{'/todolist/result/{id}' (id=${todoTask.id})}" th:object="${todoTask}" th:method="put">
 						<div class="form-group">
 							<label>Title:</label>
 							<input type="text" class="form-control" placeholder="Title" th:field="*{title}" />
 						</div>
 					<div class="form-group">
 						<label>Created By:</label>
-						<input type="text" class="form-control" placeholder="CreatedBy" th:field="*{cratedBy}" />
+						<input type="text" class="form-control" placeholder="CreatedBy" th:field="*{createdBy}" />
 					</div>
 					<div class="form-group">
 						<label>Description:</label>
-						<textarea type="text" row="3" class="form-control" placeholder="Description" th:field="*{decsription}"> </textarea>
+						<textarea type="text" row="3" class="form-control" placeholder="Description" th:field="*{description}"> </textarea>
 						</div>
 			
  						<div class="form-group">
  							<label>Status:</label>
- 							<input type="checkbox" checked="checked" placeholder="Status" th:field="{status}" />
+ 							<input type="checkbox" placeholder="Status" th:field="*{status}" />
  						</div> 
                         	<button type="submit" class="btn btn-success btn-lg action-button">Submit Changes</button>
                         </form> 
