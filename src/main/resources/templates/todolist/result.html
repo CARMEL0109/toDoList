@@ -36,7 +36,6 @@
 						
 							<form class="et_pb_button"  th:action="@{'/todolist/result/{id}'(id=${task.id})}" th:method="delete"><input type="hidden" name="_method" value="delete"/>
 							<button type="submit" class="btn btn-lg action-button" th:text="Delete">Delete a Task</button></form>
-							<button type="submit" class="btn btn-lg action-button">Update A Task</button></form>
 							<a class="et_pb_button" th:href="@{'/todolist/update/{id}' (id=${task.id})}">
 							<button type="submit" class="btn btn-lg action-button">Update A Task</button>							
 							</a> 
